@@ -45,7 +45,7 @@ La reproducibilidad es la capacidad de obtener los mismos resultados siguiendo e
 ## **Cómo ejecutar este proyecto**
 
 1. Clonar el repositorio:  
-   git clone https://github.com/USUARIO\_DUEÑO/Proyecto\_Movilidad\_NombreApellido.git  
+   git clone https://github.com/USUARIO\_DUEÑO/Proyecto\_Movilidad\Julian_Martinez.git  
 2. Asegurarse de tener instalado Pandas, Seaborn y Scikit-Learn.  
 3. Ejecutar el notebook .ipynb de forma secuencial.
 
