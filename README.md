@@ -1,51 +1,196 @@
-# Proyecto: Mi Flujo Profesional de Datos \- Análisis de Movilidad Global (Chile)
+# Proyecto de Ciencia de Datos
 
-## Descripción del proyecto
+## Limpieza y Transformación de Datos de Actividad Física
 
-Este proyecto tiene como objetivo transformar un conjunto de datos "crudo" de movilidad (Google COVID-19) en un dataset limpio, procesado y documentado bajo estándares profesionales de ciencia de datos. El flujo de trabajo integra la carga, limpieza, transformación avanzada y visualización de datos, asegurando la reproducibilidad mediante el uso de Git y GitHub.
+---
 
-## **Integrantes:**
+## Integrantes
 
-* **Dueño del Repositorio:** Julian Martinez  
-* **Colaborador 1:** Lucas Fernandez  
-* **Colaborador 2:** Vicente Castro
+* Nombre Apellido
+* Nombre Apellido
 
-## **Fases del Flujo de Datos**
+---
 
-### **1\. Entorno de Trabajo y Versionado**
+## Descripción del Proyecto
 
-* **Herramientas:** Uso de Git para el control de versiones con al menos 3 commits que evidencian el avance de cada fase.  
-* **Colaboración:** Trabajo basado en ramas (*branching*) para separar las tareas de limpieza y transformación de la rama principal (main).
+El presente proyecto tiene como objetivo transformar un dataset en estado "crudo" en un conjunto de datos limpio, estructurado y listo para su análisis.
 
-### **2\. Limpieza de Datos (Data Cleaning)**
+Se aplicaron técnicas fundamentales de ciencia de datos, incluyendo limpieza, transformación mediante pipelines y generación de nuevas variables (feature engineering).
 
-Se trabajó con el archivo Global Mobility Report.csv, realizando las siguientes acciones:
+---
 
-* **Filtrado:** Selección exclusiva de registros pertenecientes a **Chile** (country region) para optimizar el procesamiento.  
-* **Manejo de Nulos:** Identificación de celdas vacías con decisiones justificadas de borrado o imputación.  
-* **Duplicados:** Eliminación de registros repetidos por fecha y subregión.  
-* **Outliers:** Detección de variaciones de movilidad imposibles para asegurar la calidad de la información.
+## Dataset
 
-3\. Transformación Avanzada (Feature Engineering)  
-Preparación del dataset para análisis profesional:
+* **Tipo de datos:** Actividad física (cantidad de pasos por hora)
+* **Formato:** CSV
+* **Origen:** Dataset obtenido de plataformas abiertas como Kaggle
 
-* **Tipado:** Conversión de la columna date a formato datetime.  
-* **Ingeniería de Atributos:** Creación de la columna movilidad promedio basada en el promedio de las categorías de movilidad.  
-* **Escalamiento:** Aplicación de StandardScaler o MinMaxScaler a las columnas numéricas.  
-* **Codificación:** Uso de OneHotEncoder para las variables categóricas de las subregiones.
+### Modificación del Dataset
 
-## **Visualización Final**
+El dataset original se encontraba en condiciones limpias, por lo que se decidió introducir artificialmente:
 
-El proyecto incluye un gráfico de líneas (sns.lineplot) que resume el comportamiento de la movilidad promedio en Chile a través del tiempo, permitiendo visualizar el impacto del preprocesamiento.
+* Valores nulos
+* Registros duplicados
 
-## **Reflexión sobre Reproducibilidad**
+**Justificación:**
+Esto permitió simular un escenario real de trabajo en ciencia de datos, donde los datos suelen presentar inconsistencias.
 
-La reproducibilidad es la capacidad de obtener los mismos resultados siguiendo el mismo flujo de trabajo, sin importar quién lo ejecute. En este proyecto, el uso de Git y la documentación detallada en celdas de Markdown garantizan que cualquier científico de datos pueda replicar nuestro análisis de principio a fin sin pérdida de información.
+---
 
-## **Cómo ejecutar este proyecto**
+## Objetivos
 
-1. Clonar el repositorio:  
-   git clone https://github.com/USUARIO\_DUEÑO/Proyecto\_Movilidad\Julian_Martinez.git  
-2. Asegurarse de tener instalado Pandas, Seaborn y Scikit-Learn.  
-3. Ejecutar el notebook .ipynb de forma secuencial.
+* Limpiar el dataset eliminando errores e inconsistencias
+* Transformar los datos utilizando herramientas automatizadas
+* Generar nuevas variables relevantes
+* Obtener un dataset final listo para análisis o modelamiento
 
+---
+
+## Metodología
+
+El desarrollo del proyecto se estructuró en las siguientes etapas:
+
+### 1. Diagnóstico Inicial
+
+Se realizó un análisis exploratorio para identificar problemas en los datos:
+
+* Detección de valores nulos
+* Identificación de duplicados
+* Revisión de tipos de datos
+
+---
+
+### 2. Limpieza de Datos
+
+#### Eliminación de duplicados
+
+Se utilizó la función `drop_duplicates()` para eliminar registros repetidos.
+
+**Justificación:**
+Los duplicados pueden generar sesgos en el análisis y afectar los resultados.
+
+---
+
+#### Eliminación de valores nulos
+
+Se aplicó `dropna()` para eliminar filas con datos faltantes.
+
+**Justificación técnica:**
+El tamaño del dataset permitió eliminar registros sin afectar su representatividad.
+
+---
+
+### 3. Feature Engineering (Ingeniería de Variables)
+
+Se crearon nuevas variables a partir de la columna temporal:
+
+* **Hora:** permite analizar patrones diarios
+* **Día:** permite analizar comportamiento semanal
+* **FinDeSemana:** variable binaria para identificar fines de semana
+
+**Justificación:**
+Estas variables enriquecen el dataset y permiten detectar patrones más complejos.
+
+---
+
+### 4. Transformación de Datos (Pipeline)
+
+Se implementó un pipeline utilizando `scikit-learn`, que incluye:
+
+* `SimpleImputer` (imputación de valores faltantes)
+* `StandardScaler` (normalización de datos)
+
+**Justificación técnica:**
+
+* Automatiza el proceso de transformación
+* Asegura reproducibilidad
+* Sigue buenas prácticas de la industria
+
+---
+
+### 5. Visualización
+
+Se generaron gráficos para analizar el comportamiento de los datos:
+
+* Promedio de pasos por hora
+* Promedio de pasos por día
+
+**Justificación:**
+Las visualizaciones permiten identificar patrones que no son evidentes mediante estadísticas descriptivas.
+
+---
+
+## Resultados
+
+### Antes
+
+* Dataset con valores nulos y duplicados
+* Variables limitadas
+
+### Después
+
+* Dataset limpio y consistente
+* Nuevas variables creadas
+* Datos escalados
+* Listo para análisis o machine learning
+
+---
+
+## Tecnologías Utilizadas
+
+* Python
+* Pandas
+* NumPy
+* Scikit-learn
+* Matplotlib
+* Google Colab
+
+---
+
+## Justificación del Entorno
+
+Se utilizó **Google Colab** como entorno de desarrollo debido a:
+
+* No requiere instalación local
+* Permite trabajar en la nube
+* Facilita la colaboración
+* Integración directa con GitHub
+
+---
+
+## Estructura del Proyecto
+
+```
+data/
+ |-- raw/
+ |   `-- hourlySteps_sucio.csv
+ |-- processed/
+ |   `-- hourlySteps_clean.csv
+
+notebook_proyecto.ipynb
+README.md
+```
+
+---
+
+## Reproducibilidad
+
+El proyecto está diseñado para ser completamente reproducible:
+
+1. Clonar el repositorio
+2. Abrir el notebook en Google Colab
+3. Ejecutar todas las celdas
+
+---
+
+## Conclusión
+
+Se logró transformar un dataset en estado crudo en uno limpio y estructurado, aplicando técnicas fundamentales de ciencia de datos.
+
+El proceso desarrollado sigue un flujo real de trabajo en la industria, asegurando calidad, reproducibilidad y valor analítico en los datos.
+
+---
+
+## Autor
+
+Proyecto desarrollado como parte del curso de Programación para la Ciencia de Datos.
