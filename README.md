@@ -6,8 +6,9 @@
 
 ## Integrantes
 
-* Nombre Apellido
-* Nombre Apellido
+* Nombre Vicente Castro
+* Nombre Julian Martínez
+* Nombre Lucas Fernandez
 
 ---
 
